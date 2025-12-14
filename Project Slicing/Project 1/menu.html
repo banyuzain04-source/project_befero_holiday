@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cafe-brown': '#6B4423',
+                        'cafe-cream': '#F5E6D3',
+                        'cafe-gold': '#D4AF37',
+                        'cafe-dark-brown': '#4A2C17',
+                        'cafe-light-brown': '#8B5A3C',
+                    },
+                    transitionProperty: {
+                        'all': 'all',
+                    },
+                    transitionTimingFunction: {
+                        'in-out': 'ease-in-out',
+                    },
+                    transitionDuration: {
+                        '400': '400ms',
+                        '500': '500ms',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>Roti'O</title>
+    <style>
+        /* CSS Kustom Minimal */
+        #menu-toggle:checked ~ #mobileMenu {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        /* Animasi Hamburger */
+        .hamburger-line { transition: all 0.3s ease; }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) { opacity: 0; }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        
+        /* Warna Latar Belakang Banner Menu */
+        .menu-banner {
+            background-image: url('https://rotio.id/asset/images/banner_menu.jpg'); /* Ganti dengan URL gambar banner yang sesuai */
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <input type="checkbox" id="menu-toggle" class="hidden">
+    
+    <section class="top-0 bg-white z-20 max-w-full flex justify-between items-center py-4 px-8 shadow-md sticky">
+        <div class="flex-shrink-0 h-20 w-20 md:h-20 md:w-20">
+            <img class="rounded-full" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+        </div>
+        
+        <nav class="hidden md:flex items-center space-x-5">
+            <ul class="flex text-black text-md gap-5 p-4">
+                <li class="hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+                <li class="hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+                <li class="text-cafe-brown hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">BERITA</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">TOKO</a></li>
+                <li class="hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">KARIR</a></li>
+            </ul>
+
+            <div class="lang-switcher flex items-center space-x-2 ml-8">
+                <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+                <div class="w-px h-6 bg-gray-300"></div> 
+                <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+            </div>
+        </nav>
+        
+        <div class="md:hidden flex items-center">
+            <label for="menu-toggle" 
+                   class="hamburger text-black focus:outline-none cursor-pointer bg-gray-200 rounded-md p-2" 
+                   aria-label="Toggle navigation menu">
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown"></span>
+            </label>
+        </div>
+    </section>
+
+    <div id="mobileMenu" class="bg-white md:hidden border-t max-h-0 
+    opacity-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <ul class="flex flex-col text-black text-lg p-4 space-y-2">
+            <li class="p-2 hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+             <li class="p-2 text-cafe-brown hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">BERITA</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">TOKO</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">KARIR</a></li>
+            
+            <li class="p-2 pt-4 border-t mt-4 border-gray-200">
+                <div class="flex items-center justify-start space-x-3">
+                    <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+                    <div class="w-px h-6 bg-gray-300"></div> 
+                    <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="menu-banner w-full h-[400px] md:h-[600px] flex flex-col justify-center items-center relative overflow-hidden bg-black">
+            <div class="absolute inset-0 bg-black opacity-20"></div>
+            
+            <!-- Carousel Container -->
+            <div class="relative z-10 w-full h-full overflow-hidden">
+                <div class="banner-track w-full h-full flex transition-transform duration-500 ease-out cursor-grab active:cursor-grabbing"
+                     style="transform: translateX(0%);">
+                    
+                    <!-- Slide 1 -->
+                    <div class="w-full h-full flex-shrink-0 flex items-center justify-center">
+                        <img src="https://rotio.id/asset/images/1748916088_BANNER_WEB_1.jpg" alt="Banner 1" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="w-full h-full flex-shrink-0 flex items-center justify-center">
+                        <img src="https://rotio.id/asset/images/1748916091_BANNER_WEB_2.jpg" alt="Banner 2" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="w-full h-full flex-shrink-0 flex items-center justify-center">
+                        <img src="https://rotio.id/asset/images/1757561244_HOME_BANNER_1441X660_COMPRESSED.jpg" alt="Banner 3" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Duplicate Slide 1 for seamless loop -->
+                    <div class="w-full h-full flex-shrink-0 flex items-center justify-center">
+                        <img src="https://rotio.id/asset/images/1748916088_BANNER_WEB_1.jpg" alt="Banner 1 Loop" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+                <button class="banner-dot w-3 h-3 bg-white rounded-full opacity-100 transition-opacity duration-300" data-index="0"></button>
+                <button class="banner-dot w-3 h-3 bg-white rounded-full opacity-50 transition-opacity duration-300" data-index="1"></button>
+                <button class="banner-dot w-3 h-3 bg-white rounded-full opacity-50 transition-opacity duration-300" data-index="2"></button>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="banner-prev absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-400 transition-colors duration-300">
+                <i class="fas fa-chevron-left text-black text-lg md:text-2xl"></i>
+            </button>
+            <button class="banner-next absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-400 transition-colors duration-300">
+                <i class="fas fa-chevron-right text-black text-lg md:text-2xl"></i>
+            </button>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <!-- Header Section -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-cafe-dark-brown mb-4 tracking-wide" 
+                        data-id="AYO COBA SEKARANG" data-en="LET'S TRY IT NOW">
+                        AYO COBA SEKARANG
+                    </h2>
+                    <div class="inline-block px-8 py-4 bg-cafe-brown rounded-full shadow-lg mb-6">
+                        <span class="text-lg md:text-xl font-extrabold text-white" 
+                              data-id="MENU KAMI YANG MENGGUGAH SELERA" data-en="OUR DELIGHTFUL MENU">
+                              MENU KAMI YANG MENGGUGAH SELERA
+                        </span>
+                    </div>
+                    <p class="text-gray-600 text-base max-w-2xl mx-auto" 
+                       data-id="Ayo, jelajahi menu favorit Anda! Karena satu ROTI'O tidak akan pernah cukup." 
+                       data-en="Come on, explore your favorite menus! because one ROTI'O will never be enough">
+                       Ayo, jelajahi menu favorit Anda! Karena satu ROTI'O tidak akan pernah cukup.
+                    </p>
+                </div>
+                
+                <!-- Menu Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Menu Item 1 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/11.png" alt="BUTTERSCOTCH LATTE" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="BUTTERSCOTCH LATTE" data-en="BUTTERSCOTCH LATTE">
+                            BUTTERSCOTCH LATTE
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Lembut, manis, dan bikin nagih di setiap tegukan!" 
+                           data-en="Soft, sweet, and addictive with every sip!">
+                           Lembut, manis, dan bikin nagih di setiap tegukan!
+                        </p>
+                    </div>
+                    
+                    <!-- Menu Item 2 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/21.png" alt="CHOCOLATE BROWN SUGAR" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="CHOCOLATE BROWN SUGAR" data-en="CHOCOLATE BROWN SUGAR">
+                            CHOCOLATE BROWN SUGAR
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Manis lembut, coklat kuat." 
+                           data-en="Soft sweetness, strong chocolate.">
+                           Manis lembut, coklat kuat.
+                        </p>
+                    </div>
+
+                    <!-- Menu Item 3 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/21.png" alt="ICE LYCHEE TEA" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="ICE LYCHEE TEA" data-en="ICE LYCHEE TEA">
+                            ICE LYCHEE TEA
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Teh dingin segar dengan rasa leci yang manis alami." 
+                           data-en="Fresh cold tea with sweet natural lychee flavor.">
+                           Teh dingin segar dengan rasa leci yang manis alami.
+                        </p>
+                    </div>
+
+                    <!-- Menu Item 4 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/7.png" alt="CROMBO'O" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="CROMBO'O" data-en="CROMBO'O">
+                            CROMBO'O
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Croissant cokelat premium dengan taburan sprinkle manis." 
+                           data-en="Premium chocolate croissant with sweet sprinkle topping.">
+                           Croissant cokelat premium dengan taburan sprinkle manis.
+                        </p>
+                    </div>
+
+                    <!-- Menu Item 5 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/91.png" alt="MARTABAK CROISSANT" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="MARTABAK CROISSANT" data-en="MARTABAK CROISSANT">
+                            MARTABAK CROISSANT
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Croissant isi cokelat dan keju, gurih manis." 
+                           data-en="Chocolate and cheese-filled croissant, savory sweet.">
+                           Croissant isi cokelat dan keju, gurih manis.
+                        </p>
+                    </div>
+
+                    <!-- Menu Item 6 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/10.png" alt="CHOCOLATE PASTRY" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="CHOCOLATE PASTRY" data-en="CHOCOLATE PASTRY">
+                            CHOCOLATE PASTRY
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Pastry berlapis dengan coklat manis yang menggoda." 
+                           data-en="Layered pastry with tempting sweet chocolate.">
+                           Pastry berlapis dengan coklat manis yang menggoda.
+                        </p>
+                    </div>
+                    
+                    <!-- Menu Item 7 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/3.png" alt="ROTIO ICE CREAM MIX VANILLA CHOCOLATE" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="ROTIO ICE CREAM MIX" data-en="ROTIO ICE CREAM MIX">
+                            ROTIO ICE CREAM MIX
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Dua rasa favorit, vanila dan coklat dalam satu gigitan." 
+                           data-en="Two favorite flavors, vanilla and chocolate in one bite.">
+                           Dua rasa favorit, vanila dan coklat dalam satu gigitan.
+                        </p>
+                    </div>
+
+                    <!-- Menu Item 8 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/-_RAINBOW_BOBA_SUNDAE-14_(1).png" alt="RAINBOW BOBA SUNDAE" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="RAINBOW BOBA SUNDAE" data-en="RAINBOW BOBA SUNDAE">
+                            RAINBOW BOBA SUNDAE
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Perpaduan sempurna es krim dan boba untuk momen yang lebih spesial." 
+                           data-en="Perfect combination of ice cream and boba for a more special moment.">
+                           Perpaduan sempurna es krim dan boba untuk momen yang lebih spesial.
+                        </p>
+                    </div>
+
+                    <!-- Menu Item 9 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="mb-6 overflow-hidden rounded-lg">
+                            <img src="https://rotio.id/asset/images/5.png" alt="ICE CREAM CONE" class="w-full max-w-[180px] h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-cafe-dark-brown mb-2" data-id="ICE CREAM CONE" data-en="ICE CREAM CONE">
+                            ICE CREAM CONE
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-600 max-w-[220px]" 
+                           data-id="Es krim vanila-cokelat lembut dalam cone renyah." 
+                           data-en="Soft vanilla-chocolate ice cream in a crispy cone.">
+                           Es krim vanila-cokelat lembut dalam cone renyah.
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <footer class="bg-gray-50 py-10 relative">
+            <div class="container mx-auto px-4">
+                <!-- Footer Content -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Column 1: Logo & Copyright -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <img class="h-16 w-16 rounded-full mb-3" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+                        <p class="text-xs text-gray-600 text-center md:text-left" data-id="© 2025 Roti'O. Semua hak dilindungi." data-en="© 2025 Roti'O. All rights reserved.">
+                            © 2025 Roti'O. Semua hak dilindungi.
+                        </p>
+                    </div>
+                    
+                    <!-- Column 2: Menu Links -->
+                    <div class="text-center">
+                        <h3 class="text-sm font-semibold text-cafe-dark-brown mb-4 uppercase tracking-widest" data-id="Menu" data-en="Menu">
+                            Menu
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><a href="index.html" class="hover:text-cafe-brown transition-colors" data-id="Beranda" data-en="Home">Beranda</a></li>
+                            <li><a href="about.html" class="hover:text-cafe-brown transition-colors" data-id="Tentang" data-en="About">Tentang</a></li>
+                            <li><a href="menu.html" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors" data-id="Menu" data-en="Menu">Menu</a></li>
+                            <li><a href="kontak.html" class="hover:text-cafe-brown transition-colors" data-id="Kontak" data-en="Contact">Kontak</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: Contact Info -->
+                    <div class="text-center md:text-right">
+                        <h3 class="text-sm font-semibold text-cafe-dark-brown mb-4 uppercase tracking-widest" data-id="Hubungi Kami" data-en="Contact Us">
+                            Hubungi Kami
+                        </h3>
+                        <p class="text-xs text-gray-600 mb-4" data-id="WhatsApp: 081318999227" data-en="WhatsApp: 081318999227">
+                            WhatsApp: 081318999227
+                        </p>
+                        <div class="flex justify-center md:justify-end space-x-4">
+                            <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Divider -->
+                <div class="border-t border-gray-200 pt-6 text-center text-xs text-gray-500" data-id="© 2025 Roti'O Indonesia" data-en="© 2025 Roti'O Indonesia">
+                    © 2025 Roti'O Indonesia
+                </div>
+            </div>
+            
+            <!-- Scroll to Top Button -->
+            <div class="relative">
+                <div id="scrollToTop" class="absolute -top-6 left-1/2 transform -translate-x-1/2 hidden">
+                    <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-300 cursor-pointer">
+                        <i class="fas fa-chevron-up text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const targetElements = document.querySelectorAll('[data-id][data-en]'); 
+            const langBoxButtons = document.querySelectorAll('.lang-btn-box'); 
+            
+            function updateLanguage(lang) {
+                targetElements.forEach(element => {
+                    if (lang === 'en') {
+                        element.textContent = element.getAttribute('data-en');
+                    } else {
+                        element.textContent = element.getAttribute('data-id');
+                    }
+                });
+
+                localStorage.setItem('currentLang', lang);
+                document.documentElement.lang = lang;
+                
+                langBoxButtons.forEach(button => {
+                    button.classList.remove('bg-cafe-brown', 'text-white');
+                    button.classList.add('bg-white', 'text-cafe-dark-brown'); 
+                    
+                    if (button.getAttribute('data-lang') === lang) {
+                        button.classList.add('bg-cafe-brown', 'text-white');
+                        button.classList.remove('bg-white', 'text-cafe-dark-brown');
+                    }
+                });
+            }
+
+            const savedLang = localStorage.getItem('currentLang') || 'id';
+            updateLanguage(savedLang);
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const lang = button.getAttribute('data-lang');
+                    updateLanguage(lang);
+                    document.getElementById('menu-toggle').checked = false;
+                });
+            });
+
+            // Scroll to Top Button Handler
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Banner Carousel Logic
+            const bannerTrack = document.querySelector('.banner-track');
+            const bannerDots = document.querySelectorAll('.banner-dot');
+            const bannerPrevBtn = document.querySelector('.banner-prev');
+            const bannerNextBtn = document.querySelector('.banner-next');
+            
+            let bannerIndex = 0;
+            const bannerVisible = 1;
+            const bannerTotalSlides = 3;
+            let bannerAutoplayTimer;
+            let bannerIsPointerDown = false;
+            let bannerPointerStartX = 0;
+
+            function updateBannerPosition() {
+                const offset = -bannerIndex * (100 / bannerVisible);
+                bannerTrack.style.transform = `translateX(${offset}%)`;
+                
+                // Update dots
+                bannerDots.forEach((dot, idx) => {
+                    if (idx === bannerIndex % bannerTotalSlides) {
+                        dot.classList.remove('opacity-50');
+                        dot.classList.add('opacity-100');
+                    } else {
+                        dot.classList.add('opacity-50');
+                        dot.classList.remove('opacity-100');
+                    }
+                });
+            }
+
+            function moveBannerSlide(direction) {
+                if (direction === 'next') {
+                    bannerIndex++;
+                    if (bannerIndex >= bannerTotalSlides + 1) {
+                        bannerIndex = 0;
+                    }
+                } else {
+                    bannerIndex--;
+                    if (bannerIndex < 0) {
+                        bannerIndex = bannerTotalSlides - 1;
+                    }
+                }
+                updateBannerPosition();
+                clearBannerAutoplay();
+                startBannerAutoplay();
+            }
+
+            function startBannerAutoplay() {
+                bannerAutoplayTimer = setInterval(() => {
+                    moveBannerSlide('next');
+                }, 4000);
+            }
+
+            function clearBannerAutoplay() {
+                clearInterval(bannerAutoplayTimer);
+            }
+
+            // Button Events
+            bannerNextBtn.addEventListener('click', () => moveBannerSlide('next'));
+            bannerPrevBtn.addEventListener('click', () => moveBannerSlide('prev'));
+
+            // Dot Events
+            bannerDots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    bannerIndex = idx;
+                    updateBannerPosition();
+                    clearBannerAutoplay();
+                    startBannerAutoplay();
+                });
+            });
+
+            // Pointer Events for Drag
+            bannerTrack.addEventListener('pointerdown', (e) => {
+                bannerIsPointerDown = true;
+                bannerPointerStartX = e.clientX;
+                clearBannerAutoplay();
+            });
+
+            bannerTrack.addEventListener('pointermove', (e) => {
+                if (!bannerIsPointerDown) return;
+                // Prevent default drag behavior
+                e.preventDefault();
+            });
+
+            bannerTrack.addEventListener('pointerup', (e) => {
+                if (!bannerIsPointerDown) return;
+                bannerIsPointerDown = false;
+                
+                const delta = e.clientX - bannerPointerStartX;
+                if (Math.abs(delta) > 60) {
+                    if (delta > 0) {
+                        moveBannerSlide('prev');
+                    } else {
+                        moveBannerSlide('next');
+                    }
+                }
+                startBannerAutoplay();
+            });
+
+            bannerTrack.addEventListener('pointercancel', () => {
+                bannerIsPointerDown = false;
+                startBannerAutoplay();
+            });
+
+            // Pause autoplay on hover
+            bannerTrack.addEventListener('mouseenter', clearBannerAutoplay);
+            bannerTrack.addEventListener('mouseleave', startBannerAutoplay);
+
+            // Start autoplay
+            startBannerAutoplay();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'cafe-brown': '#6B4423',
+'cafe-cream': '#F5E6D3',
+'cafe-gold': '#D4AF37',
+'cafe-dark-brown': '#4A2C17',
+'cafe-light-brown': '#8B5A3C',
+},
+fontFamily: {
+'serif': ['Playfair Display', 'serif'],
+'sans': ['Lato', 'sans-serif'],
+},
+transitionProperty: {
+'all': 'all',
+},
+transitionTimingFunction: {
+'in-out': 'ease-in-out',
+},
+transitionDuration: {
+'400': '400ms',
+'500': '500ms',
+}
+}
+}
+}
+</script>
+<title>Roti'O</title>
+<style>
+/* CSS Kustom Minimal */
+#menu-toggle:checked ~ #mobileMenu {
+max-height: 500px;
+opacity: 1;
+}
+
+/* Animasi Hamburger */
+.hamburger-line { transition: all 0.3s ease; }
+#menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+#menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) { opacity: 0; }
+#menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+</style></head>
+<body class="overflow-x-hidden font-sans">
+<input type="checkbox" id="menu-toggle" class="hidden">
+
+<section class="top-0 bg-white z-20 max-w-full flex justify-between items-center py-4 px-8 shadow-md">
+<div class="flex-shrink-0 h-20 w-20 md:h-20 md:w-20">
+<img class="rounded-full" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+</div>
+
+<nav class="hidden md:flex items-center space-x-5">
+<ul class="flex text-black text-md gap-5 p-4">
+<li class="hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+<li class="text-cafe-brown hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+<li class="hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+<li class="hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">BERITA</a></li>
+<li class="hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">TOKO</a></li>
+<li class="hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+<li class="hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">KARIR</a></li>
+</ul>
+
+<div class="lang-switcher flex items-center space-x-2 ml-8">
+<button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+<div class="w-px h-6 bg-gray-300"></div>
+<button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+</div>
+</nav>
+
+<div class="md:hidden flex items-center">
+<label for="menu-toggle"
+class="hamburger text-black focus:outline-none cursor-pointer bg-gray-200 rounded-md p-2"
+aria-label="Toggle navigation menu">
+<span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+<span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+<span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown"></span>
+</label>
+</div>
+</section>
+
+<div id="mobileMenu" class="bg-white md:hidden border-t max-h-0
+opacity-0 overflow-hidden transition-all duration-300 ease-in-out">
+<ul class="flex flex-col text-black text-lg p-4 space-y-2">
+<li class="p-2 hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+<li class="p-2 text-cafe-brown hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+<li class="p-2 hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+<li class="p-2 hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">BERITA</a></li>
+<li class="p-2 hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">TOKO</a></li>
+<li class="p-2 hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+<li class="p-2 hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">KARIR</a></li>
+
+<li class="p-2 pt-4 border-t mt-4 border-gray-200">
+<div class="flex items-center justify-start space-x-3">
+<button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+<div class="w-px h-6 bg-gray-300"></div>
+<button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+</div>
+</li>
+</ul>
+</div>
+
+<!-- Section 1: Hero / Jelajahi Kami -->
+<section class="bg-gradient-to-b from-cafe-cream to-white py-16 md:py-24">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h1 class="font-serif text-5xl md:text-6xl font-bold text-cafe-dark-brown mb-4" data-id="Jelajahi Kami" data-en="Explore Us">Jelajahi Kami</h1>
+<p class="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto" data-id="Melihat lebih dekat siapa kami, di mana kami melayani, dan apa yang kami perjuangkan." data-en="Get closer to who we are, where we serve, and what we fight for.">Melihat lebih dekat siapa kami, di mana kami melayani, dan apa yang kami perjuangkan.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="font-serif text-3xl md:text-4xl font-bold text-cafe-brown mb-6" data-id="Tentang Roti'O" data-en="About Roti'O">Tentang Roti'O</h2>
+<p class="text-gray-700 text-lg leading-relaxed mb-4" data-id="Roti'O didirikan pada tahun 2012 dan telah berkembang pesat di seluruh Indonesia. Kami menyajikan roti berkualitas tinggi dengan bahan-bahan pilihan yang memberikan pengalaman kuliner yang tak terlupakan." data-en="Roti'O was founded in 2012 and has rapidly grown across Indonesia. We serve high-quality bread with selected ingredients that provide an unforgettable culinary experience.">
+Roti'O didirikan pada tahun 2012 dan telah berkembang pesat di seluruh Indonesia. Kami menyajikan roti berkualitas tinggi dengan bahan-bahan pilihan yang memberikan pengalaman kuliner yang tak terlupakan.
+</p>
+<p class="text-gray-700 text-lg leading-relaxed" data-id="Dengan komitmen kami terhadap kualitas dan inovasi, Roti'O terus memperluas jangkauannya untuk memberikan produk terbaik kepada pelanggan setia kami di seluruh negeri." data-en="With our commitment to quality and innovation, Roti'O continues to expand its reach to provide the best products to our loyal customers across the country.">
+Dengan komitmen kami terhadap kualitas dan inovasi, Roti'O terus memperluas jangkauannya untuk memberikan produk terbaik kepada pelanggan setia kami di seluruh negeri.
+</p>
+</div>
+<div>
+<img src="https://rotio.id/asset/banner/332f5719-92b5-4330-896a-7bb7cf2d104c_compressed4.jpg" alt="Roti'O Store Exterior" class="w-full h-auto rounded-lg shadow-xl">
+</div>
+</div>
+</section>
+
+<!-- Section 2: Visi & Misi Kami -->
+<section class="bg-white py-16 md:py-24">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<h2 class="font-serif text-4xl md:text-5xl font-bold text-cafe-dark-brown text-center mb-6" data-id="Visi & Misi Kami" data-en="Our Vision & Mission">Visi & Misi Kami</h2>
+<p class="text-center text-gray-700 text-lg md:text-xl mb-12" data-id="Menghadirkan roti dengan cita rasa khas ke seluruh pelosok dunia dan berbagi kenangan manis di setiap gigitannya." data-en="Bringing bread with a distinctive flavor to all corners of the world and sharing sweet memories in every bite.">Menghadirkan roti dengan cita rasa khas ke seluruh pelosok dunia dan berbagi kenangan manis di setiap gigitannya.</p>
+
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="text-cafe-brown font-bold text-2xl min-w-fit">R</div>
+<p class="text-gray-700 text-lg">Rasa asli dan otentik dengan bahan-bahan berkualitas tinggi untuk kepuasan pelanggan yang maksimal.</p>
+</div>
+<div class="flex gap-4 items-start">
+<div class="text-cafe-brown font-bold text-2xl min-w-fit">O</div>
+<p class="text-gray-700 text-lg">Optimal dalam pelayanan yang hangat dan ramah kepada seluruh pelanggan Roti'O.</p>
+</div>
+<div class="flex gap-4 items-start">
+<div class="text-cafe-brown font-bold text-2xl min-w-fit">T</div>
+<p class="text-gray-700 text-lg">Turut menjunjung tinggi kelestarian lingkungan di bumi ini, dengan menjalankan bisnis secara etis dan bertanggung jawab.</p>
+</div>
+<div class="flex gap-4 items-start">
+<div class="text-cafe-brown font-bold text-2xl min-w-fit">I</div>
+<p class="text-gray-700 text-lg">Ikut meningkatkan kesejahteraan karyawan dengan menciptakan lingkungan kerja yang baik, aman, dan senantiasa berkembang.</p>
+</div>
+<div class="flex gap-4 items-start">
+<div class="text-cafe-brown font-bold text-2xl min-w-fit">O</div>
+<p class="text-gray-700 text-lg">Observasi berkelanjutan dan beradaptasi sesuai kebutuhan pasar untuk memastikan daya saing produk.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 3: History & Achievements -->
+<section class="bg-cafe-cream py-16 md:py-24">
+<div class="container mx-auto px-4">
+<h2 class="font-serif text-4xl md:text-5xl font-bold text-cafe-dark-brown text-center mb-12" data-id="Kami Mulai Beroperasi Pada Tahun 2012, Dan Hari Ini:" data-en="We Started Operating in 2012, And Today:">Kami Mulai Beroperasi Pada Tahun 2012, Dan Hari Ini:</h2>
+<div class="grid md:grid-cols-4 gap-8">
+<!-- Card 1: Karyawan -->
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+<img src="https://rotio.id/asset/images/karyawan_compressed1.jpg" alt="Karyawan" class="w-full h-56 object-cover">
+<div class="p-6">
+<h3 class="font-serif text-2xl font-bold text-cafe-dark-brown mb-2" data-id="Karyawan" data-en="Employees">Karyawan</h3>
+<p class="text-cafe-brown font-bold text-xl" data-id="Lebih dari 2000" data-en="More than 2000">Lebih dari 2000</p>
+</div>
+</div>
+
+<!-- Card 2: Prestasi Kami -->
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+<img src="https://rotio.id/asset/images/plakat_shopee.png" alt="Prestasi Kami" class="w-full h-56 object-cover">
+<div class="p-6">
+<h3 class="font-serif text-2xl font-bold text-cafe-dark-brown mb-2" data-id="Prestasi Kami" data-en="Our Achievements">Prestasi Kami</h3>
+<p class="text-cafe-brown font-bold text-sm" data-id="MERCHANT SNACK & DESSERT SHOPEEFOOD TERBAIK" data-en="BEST SNACK & DESSERT MERCHANT SHOPEEFOOD">MERCHANT SNACK & DESSERT SHOPEEFOOD TERBAIK</p>
+</div>
+</div>
+
+<!-- Card 3: Tim Kami -->
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+<img src="https://rotio.id/asset/images/fotbar1.jpg" alt="Tim kami" class="w-full h-56 object-cover">
+<div class="p-6">
+<h3 class="font-serif text-2xl font-bold text-cafe-dark-brown mb-2" data-id="Tim kami" data-en="Our Team">Tim kami</h3>
+<p class="text-cafe-brown font-bold text-sm" data-id="Tim Kelas Dunia dengan Wawasan Internasional" data-en="World Class Team with International Insight">Tim Kelas Dunia dengan Wawasan Internasional</p>
+</div>
+</div>
+
+<!-- Card 4: Jejak Kaki Kita -->
+<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+<img src="https://rotio.id/asset/images/ChatGPT_Image_May_28,_2025,_01_50_29_PM.png" alt="Jejak Kaki Kita" class="w-full h-56 object-cover">
+<div class="p-6">
+<h3 class="font-serif text-2xl font-bold text-cafe-dark-brown mb-2" data-id="Jejak Kaki Kita" data-en="Our Footprints">Jejak Kaki Kita</h3>
+<p class="text-cafe-brown font-bold text-sm" data-id="Lebih dari 700 toko di 110 kota di Indonesia" data-en="More than 700 stores in 110 cities in Indonesia">Lebih dari 700 toko di 110 kota</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Section 4: Contact Info -->
+<section class="bg-white py-16 md:py-24">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="font-serif text-4xl md:text-5xl font-bold text-cafe-dark-brown mb-8" data-id="Informasi Kontak Layanan Pengaduan" data-en="Complaint Service Contact Information">Informasi Kontak Layanan Pengaduan</h2>
+<p class="text-gray-700 text-lg leading-relaxed mb-8" data-id="Jika Anda memiliki keluhan atau masukan mengenai produk atau layanan Roti'O, kami siap membantu Anda. Silakan hubungi pusat layanan pengaduan kami untuk mendapatkan solusi terbaik." data-en="If you have complaints or suggestions about Roti'O's products or services, we are ready to help you. Please contact our complaint service center to get the best solution.">Jika Anda memiliki keluhan atau masukan mengenai produk atau layanan Roti'O, kami siap membantu Anda. Silakan hubungi pusat layanan pengaduan kami untuk mendapatkan solusi terbaik.</p>
+
+<div class="bg-cafe-cream rounded-lg p-8 mb-8">
+<div class="flex items-center justify-center gap-3 mb-2">
+<i class="fab fa-whatsapp text-cafe-brown text-2xl"></i>
+<span class="text-lg font-semibold text-cafe-dark-brown">WhatsApp:</span>
+</div>
+<a href="https://wa.me/6281318999227" target="_blank" class="text-cafe-brown hover:text-cafe-dark-brown text-xl font-bold transition-colors">081318999227</a>
+</div>
+
+<div class="flex justify-center gap-6">
+<a href="https://www.youtube.com/@rotio.indonesia" target="_blank" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors">
+<i class="fab fa-youtube text-3xl"></i>
+</a>
+<a href="https://x.com/rotioindonesia" target="_blank" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors">
+<i class="fab fa-x-twitter text-3xl"></i>
+</a>
+<a href="https://www.instagram.com/rotio.indonesia" target="_blank" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors">
+<i class="fab fa-instagram text-3xl"></i>
+</a>
+<a href="https://www.linkedin.com/company/pt-sebastian-citra-indonesia-roti-o-career/" target="_blank" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors">
+<i class="fab fa-linkedin text-3xl"></i>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-50 py-10 relative">
+    <div class="container mx-auto px-4">
+        <!-- Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Column 1: Logo & Copyright -->
+            <div class="flex flex-col items-center md:items-start">
+                <img class="h-16 w-16 rounded-full mb-3" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+                <p class="text-xs text-gray-600 text-center md:text-left" data-id="© 2025 Roti'O. Semua hak dilindungi." data-en="© 2025 Roti'O. All rights reserved.">
+                    © 2025 Roti'O. Semua hak dilindungi.
+                </p>
+            </div>
+            
+            <!-- Column 2: Menu Links -->
+            <div class="text-center">
+                <h3 class="text-sm font-semibold text-cafe-dark-brown mb-4 uppercase tracking-widest" data-id="Menu" data-en="Menu">
+                    Menu
+                </h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><a href="index.html" class="hover:text-cafe-brown transition-colors" data-id="Beranda" data-en="Home">Beranda</a></li>
+                    <li><a href="about.html" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors" data-id="Tentang" data-en="About">Tentang</a></li>
+                    <li><a href="menu.html" class="hover:text-cafe-brown transition-colors" data-id="Menu" data-en="Menu">Menu</a></li>
+                    <li><a href="kontak.html" class="hover:text-cafe-brown transition-colors" data-id="Kontak" data-en="Contact">Kontak</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Contact Info -->
+            <div class="text-center md:text-right">
+                <h3 class="text-sm font-semibold text-cafe-dark-brown mb-4 uppercase tracking-widest" data-id="Hubungi Kami" data-en="Contact Us">
+                    Hubungi Kami
+                </h3>
+                <p class="text-xs text-gray-600 mb-4" data-id="WhatsApp: 081318999227" data-en="WhatsApp: 081318999227">
+                    WhatsApp: 081318999227
+                </p>
+                <div class="flex justify-center md:justify-end space-x-4">
+                    <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Divider -->
+        <div class="border-t border-gray-200 pt-6 text-center text-xs text-gray-500" data-id="© 2025 Roti'O Indonesia" data-en="© 2025 Roti'O Indonesia">
+            © 2025 Roti'O Indonesia
+        </div>
+<i class="fab fa-x-twitter text-2xl"></i>
+</a>
+<a href="https://www.linkedin.com/company/pt-sebastian-citra-indonesia-roti-o-career/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+<i class="fab fa-linkedin text-2xl"></i>
+</a>
+</div>
+<p class="text-center text-gray-400 text-sm" data-id="© 2025 Roti'O. Semua hak dilindungi." data-en="© 2025 Roti'O. All rights reserved.">© 2025 Roti'O. Semua hak dilindungi.</p>
+</div>
+            <!-- Scroll to Top Button -->
+            <div class="relative">
+                <div id="scrollToTop" class="absolute -top-6 left-1/2 transform -translate-x-1/2 hidden">
+                    <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-300 cursor-pointer">
+                        <i class="fas fa-chevron-up text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+<script>    // Scroll to Top Button Functionality
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+document.addEventListener('DOMContentLoaded', function() {
+const langButtons = document.querySelectorAll('.lang-btn');
+const targetElements = document.querySelectorAll('[data-id][data-en]');
+const langBoxButtons = document.querySelectorAll('.lang-btn-box');
+
+function updateLanguage(lang) {
+targetElements.forEach(element => {
+if (lang === 'en') {
+element.textContent = element.getAttribute('data-en');
+} else {
+element.textContent = element.getAttribute('data-id');
+}
+});
+
+localStorage.setItem('currentLang', lang);
+document.documentElement.lang = lang;
+
+langBoxButtons.forEach(button => {
+button.classList.remove('bg-cafe-brown', 'text-white');
+button.classList.add('bg-white', 'text-cafe-dark-brown');
+
+if (button.getAttribute('data-lang') === lang) {
+button.classList.add('bg-cafe-brown', 'text-white');
+button.classList.remove('bg-white', 'text-cafe-dark-brown');
+}
+});
+}
+
+const savedLang = localStorage.getItem('currentLang') || 'id';
+updateLanguage(savedLang);
+
+langButtons.forEach(button => {
+button.addEventListener('click', () => {
+const lang = button.getAttribute('data-lang');
+updateLanguage(lang);
+document.getElementById('menu-toggle').checked = false;
+});
+});
+});
+</script></body>
+</html>

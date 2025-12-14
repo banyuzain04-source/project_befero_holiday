@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cafe-brown': '#6B4423',
+                        'cafe-cream': '#F5E6D3',
+                        'cafe-gold': '#D4AF37',
+                        'cafe-dark-brown': '#4A2C17',
+                        'cafe-light-brown': '#8B5A3C',
+                    },
+                }
+            }
+        }
+    </script>
+    <title data-id="Kontak | Roti'O" data-en="Contact | Roti'O">Contact | Roti'O</title>
+    <style>
+        /* Custom Navigation CSS */
+        #menu-toggle:checked ~ #mobileMenu {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .hamburger-line { transition: all 0.3s ease; }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) { opacity: 0; }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        
+        /* Language Switcher Styling */
+        .lang-separator {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 1.5rem;
+            background-color: #e5e7eb; 
+            margin: 0 0.25rem; 
+        }
+
+        /* Custom Input Style (Underline only, matching the reference image) */
+        .form-input-custom {
+            border: none;
+            border-bottom: 1px solid #ccc; 
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0.5rem; /* pt-2 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            border-radius: 0;
+            box-shadow: none;
+            transition: border-color 0.2s;
+        }
+        .form-input-custom:focus {
+            border-color: #6B4423; /* cafe-brown on focus */
+            outline: none;
+            box-shadow: none;
+        }
+        .recaptcha-box {
+            border: 1px solid #d3d3d3;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            padding: 5px 10px; /* Reduced padding to match common reCAPTCHA size */
+            width: 300px; /* Fixed width for better layout */
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden text-cafe-dark-brown">
+    <input type="checkbox" id="menu-toggle" class="hidden">
+    
+    <section class="top-0 bg-white z-20 max-w-full flex justify-between items-center py-4 px-8 shadow-md">
+        <div class="flex-shrink-0 h-20 w-20 md:h-20 md:w-20">
+            <img class="rounded-full" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+        </div>
+        
+        <nav class="hidden md:flex items-center space-x-5">
+            <ul class="flex text-black text-md gap-5 p-4">
+                <li class="hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">HOME</a></li>
+                <li class="hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">ABOUT</a></li>
+                <li class="hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">NEWS</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">STORE</a></li>
+                <li class="text-cafe-brown hover:text-cafe-brown active:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">CONTACT</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">CAREER</a></li>
+            </ul>
+            
+            <div class="lang-switcher flex items-center space-x-0 ml-8">
+                <button class="lang-btn-box lang-btn px-4 py-2 text-md font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+                <div class="lang-separator"></div>
+                <button class="lang-btn-box lang-btn px-4 py-2 text-md font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+            </div>
+        </nav>
+        
+        <div class="md:hidden flex items-center">
+            <label for="menu-toggle" 
+                   class="hamburger text-black focus:outline-none cursor-pointer bg-gray-200 rounded-md p-2" 
+                   aria-label="Toggle navigation menu">
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown"></span>
+            </label>
+        </div>
+    </section>
+
+    <div id="mobileMenu" class="bg-white md:hidden border-t max-h-0 
+    opacity-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <ul class="flex flex-col text-black text-lg p-4 space-y-2">
+            <li class="p-2 hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">HOME</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">ABOUT</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">NEWS</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">STORE</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">CONTACT</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">CAREER</a></li>
+            
+            <li class="p-2 pt-4 border-t mt-4 border-gray-200">
+                <div class="flex items-center justify-start space-x-3">
+                    <button class="lang-btn-box lang-btn px-4 py-2 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+                    <div class="lang-separator"></div> 
+                    <button class="lang-btn-box lang-btn px-4 py-2 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main class="container mx-auto px-4 py-16">
+        <h1 class="text-4xl md:text-5xl font-light text-center mb-2 uppercase text-cafe-dark-brown" 
+            data-id="HUBUNGI KAMI" data-en="CONTACT US">CONTACT US</h1>
+        <div class="flex flex-col md:flex-row max-w-5xl mx-auto p-4 md:p-8">
+            <div class="md:w-[60%] md:pr-16">
+                <form action="#" method="POST" class="space-y-8">
+                    
+                    <input type="text" placeholder="Name" class="form-input-custom w-full focus:ring-0" 
+                           data-id-placeholder="Nama" data-en-placeholder="Name">
+                    
+                    <input type="tel" placeholder="Phone Number" class="form-input-custom w-full focus:ring-0" 
+                           data-id-placeholder="Nomor Telepon" data-en-placeholder="Phone Number">
+                    
+                    <input type="email" placeholder="Email" class="form-input-custom w-full focus:ring-0" 
+                           data-id-placeholder="Email" data-en-placeholder="Email">
+                    
+                    <select class="form-input-custom w-full focus:ring-0 text-gray-700 appearance-none" 
+                            data-id-placeholder="Pilih Subjek" data-en-placeholder="Select Subject">
+                        <option value="" disabled selected data-id="Pilih Subjek" data-en="Select Subject">Select Subject</option>
+                        <option value="complaint" data-id="Keluhan" data-en="Complaint">Complaint</option>
+                        <option value="partnership" data-id="Kerjasama" data-en="Partnership">Partnership</option>
+                        <option value="other" data-id="Lainnya" data-en="Other">Other</option>
+                    </select>
+
+                    <input type="text" placeholder="Your Country" class="form-input-custom w-full focus:ring-0" 
+                           data-id-placeholder="Negara Anda" data-en-placeholder="Your Country">
+
+                    <input type="text" placeholder="Your City / Location" class="form-input-custom w-full focus:ring-0" 
+                           data-id-placeholder="Kota / Lokasi Anda" data-en-placeholder="Your City / Location">
+
+                    <textarea placeholder="Message" rows="4" class="form-input-custom w-full focus:ring-0 resize-none" 
+                              data-id-placeholder="Pesan" data-en-placeholder="Message"></textarea>
+                    
+                    <div class="pt-4 flex items-center justify-start">
+                        <div class="recaptcha-box flex items-center justify-between">
+                            <label class="flex items-center space-x-2 text-sm text-gray-500">
+                                <input type="checkbox" class="form-checkbox text-cafe-brown rounded border-gray-300 focus:ring-cafe-brown">
+                                <span data-id="Saya bukan robot" data-en="I am not a robot">I am not a robot</span>
+                            </label>
+                            <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" class="w-8 h-8">
+                        </div>
+                    </div>
+                    
+                    </form>
+            </div>
+            
+            <div class="hidden md:flex md:w-[40%] items-start justify-center pt-16">
+                 <svg class="w-full h-auto max-w-[200px]" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="52" y="148" width="408" height="256" rx="16" fill="#FFC93C"/>
+                    <path d="M52 148L256 276L460 148V404H52V148Z" fill="#FFD959"/>
+                    <path d="M460 148L256 276L52 148" stroke="#D4AF37" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-white pt-10 border-t border-gray-200">
+        <div class="container mx-auto px-4 pb-10 flex flex-col md:flex-row justify-between items-start md:items-start max-w-5xl">
+            
+            <div class="flex flex-col items-start mb-6 md:mb-0">
+                <img class="w-16 h-16 rounded-full mb-2" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+                <p class="text-sm font-semibold text-cafe-dark-brown">ROTI'O INDONESIA</p>
+            </div>
+
+            <div class="md:text-right md:w-1/2">
+                <h3 class="text-lg font-bold mb-2 text-cafe-dark-brown" 
+                    data-id="Informasi Kontak Layanan Pengaduan"
+                    data-en="Complaint Service Contact Information">
+                    Complaint Service Contact Information
+                </h3>
+                <p class="text-sm text-gray-600 max-w-md md:ml-auto mb-3" 
+                   data-id="Jika Anda memiliki keluhan atau masukan mengenai produk atau layanan Rotio, kami siap membantu Anda. Silakan hubungi pusat layanan pengaduan kami untuk mendapatkan solusi terbaik."
+                   data-en="If you have complaints or feedback regarding Rotio products or services, we are ready to assist you. Please contact our complaint service center for the best solution.">
+                    If you have complaints or feedback regarding Rotio products or services, we are ready to assist you. Please contact our complaint service center for the best solution.
+                </p>
+                <div class="flex items-center md:justify-end text-sm text-cafe-dark-brown mb-4">
+                    <i class="fab fa-whatsapp text-green-500 text-xl mr-2"></i>
+                    <span class="font-semibold">WhatsApp:</span> 081318999227
+                </div>
+
+                <div class="flex space-x-4 md:justify-end text-gray-500">
+                    <a href="#" class="hover:text-cafe-brown"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-cafe-brown"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-cafe-brown"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-cafe-brown"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+             <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-yellow-500 transition-colors">
+                    <i class="fas fa-chevron-up text-white"></i>
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 py-3 text-center text-gray-500 text-sm mt-8">
+                <p>ROTIO 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+
+// Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const targetElements = document.querySelectorAll('[data-id][data-en]');
+            const langBoxButtons = document.querySelectorAll('.lang-btn-box'); 
+            
+            // Select elements with placeholder attributes to be switched
+            const inputPlaceholders = document.querySelectorAll('[data-id-placeholder], [data-en-placeholder]');
+
+            function updateLanguage(lang) {
+                // 1. Update text content (Menu, Title, Paragraphs, Option)
+                targetElements.forEach(element => {
+                    // Check if it's not an input/textarea with a placeholder attribute
+                    if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                        // Special handling for SELECT options
+                        if (element.tagName === 'OPTION') {
+                            element.textContent = element.getAttribute(`data-${lang}`);
+                        } else {
+                            element.textContent = element.getAttribute(`data-${lang}`);
+                        }
+                    }
+                });
+
+                // 2. Update input placeholders
+                inputPlaceholders.forEach(input => {
+                    const placeholderKey = (lang === 'en') ? 'data-en-placeholder' : 'data-id-placeholder';
+                    const currentPlaceholder = input.getAttribute(placeholderKey);
+                    
+                    if (input.tagName === 'INPUT' || input.tagName === 'TEXTAREA') {
+                        input.setAttribute('placeholder', currentPlaceholder);
+                    } 
+                    // Handle placeholder for the default SELECT option if it exists
+                    else if (input.tagName === 'SELECT') {
+                        const defaultOption = input.querySelector('option[disabled][selected]');
+                        if(defaultOption) {
+                             defaultOption.textContent = currentPlaceholder;
+                        }
+                    }
+                });
+
+
+                // 3. Save language to Local Storage
+                localStorage.setItem('currentLang', lang);
+
+                // 4. Update <html> lang attribute
+                document.documentElement.lang = lang;
+                
+                // 5. Update active button style
+                langBoxButtons.forEach(button => {
+                    // Reset style: white, cafe-dark-brown text, gray border
+                    button.classList.remove('bg-cafe-brown', 'text-white', 'text-cafe-dark-brown', 'border-gray-300', 'bg-white');
+                    button.classList.add('bg-white', 'text-cafe-dark-brown', 'border', 'border-gray-300'); 
+                    
+                    // Set style for the active button: cafe-brown, white text, no border needed as it's filled
+                    if (button.getAttribute('data-lang') === lang) {
+                        button.classList.add('bg-cafe-brown', 'text-white');
+                        button.classList.remove('bg-white', 'text-cafe-dark-brown', 'border', 'border-gray-300');
+                    }
+                });
+            }
+
+            // Initialization: Load language from Local Storage or use 'en' as default here
+            const savedLang = localStorage.getItem('currentLang') || 'id'; // Default to ID based on index.html
+            updateLanguage(savedLang);
+
+            // Event Listeners for language switch buttons
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const lang = button.getAttribute('data-lang');
+                    updateLanguage(lang);
+                    
+                    document.getElementById('menu-toggle').checked = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

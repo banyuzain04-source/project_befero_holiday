@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cafe-brown': '#6B4423',
+                        'cafe-cream': '#F5E6D3',
+                        'cafe-gold': '#D4AF37',
+                        'cafe-dark-brown': '#4A2C17',
+                        'cafe-light-brown': '#8B5A3C',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    transitionProperty: {
+                        'all': 'all',
+                    },
+                    transitionTimingFunction: {
+                        'in-out': 'ease-in-out',
+                    },
+                    transitionDuration: {
+                        '400': '400ms',
+                        '500': '500ms',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>Roti'O</title>
+    <style>
+        /* CSS Kustom Minimal */
+        #menu-toggle:checked ~ #mobileMenu {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        /* Animasi Hamburger */
+        .hamburger-line { transition: all 0.3s ease; }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) { opacity: 0; }
+        #menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <input type="checkbox" id="menu-toggle" class="hidden">
+    
+    <header class="top-0 bg-white z-20 max-w-full flex justify-between items-center py-4 px-8 shadow-md">
+        <div class="flex-shrink-0 h-20 w-20 md:h-20 md:w-20">
+            <img class="rounded-full" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+        </div>
+        
+        <nav class="hidden md:flex items-center space-x-5">
+            <ul class="flex text-black text-md gap-5 p-4">
+                <li class="text-cafe-brown hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+                <li class="hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+                <li class="hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">BERITA</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">TOKO</a></li>
+                <li class="hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+                <li class="hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">KARIR</a></li>
+            </ul>
+            
+            <div class="lang-switcher flex items-center space-x-2 ml-8">
+                <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+                <div class="w-px h-6 bg-gray-300"></div> 
+                <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+            </div>
+        </nav>
+        
+        <div class="md:hidden flex items-center">
+            <label for="menu-toggle" 
+                   class="hamburger text-black focus:outline-none cursor-pointer bg-gray-200 rounded-md p-2" 
+                   aria-label="Toggle navigation menu">
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown mb-1"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-cafe-dark-brown"></span>
+            </label>
+        </div>
+    </header>
+
+    <div id="mobileMenu" class="bg-white md:hidden border-t max-h-0 
+    opacity-0 overflow-hidden transition-all duration-300 ease-in-out">
+        <ul class="flex flex-col text-black text-lg p-4 space-y-2">
+            <li class="p-2 text-cafe-brown hover:text-cafe-brown"><a href="index.html" data-id="BERANDA" data-en="HOME">BERANDA</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="about.html" data-id="TENTANG" data-en="ABOUT">TENTANG</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="menu.html" data-id="MENU" data-en="MENU">MENU</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="BERITA" data-en="NEWS">BERITA</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="TOKO" data-en="STORE">TOKO</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="kontak.html" data-id="KONTAK" data-en="CONTACT">KONTAK</a></li>
+            <li class="p-2 hover:text-cafe-brown"><a href="#" data-id="KARIR" data-en="CAREER">KARIR</a></li>
+            
+            <li class="p-2 pt-4 border-t mt-4 border-gray-200">
+                <div class="flex items-center justify-start space-x-3">
+                    <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="id">ID</button>
+                    <div class="w-px h-6 bg-gray-300"></div> 
+                    <button class="lang-btn-box lang-btn px-3 py-1 text-sm font-semibold transition-all duration-200 border border-gray-300 rounded" data-lang="en">EN</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <section class="w-full relative">
+        <video autoplay muted loop class="max-w-[100%] w-full h-auto" 
+        src="https://rotio.id/asset/banner/VIDEO_ANNIVERSARY_ROTIO_11_TAHUN_MENTAH_(1)_(1)_(1)_(1).mp4">
+        </video>
+
+        <div id="menuBox" 
+             class="hidden md:block absolute w-[84px] h-[118px] bg-cafe-dark-brown text-white 
+             flex items-center justify-center 
+             cursor-pointer z-30 top-1/2 right-0 -translate-y-1/2">
+            <a href="menu.html" class="font-light text-xl leading-none hover:underline text-center px-5 
+            h-full w-full flex items-center justify-center" data-id="MENU" data-en="MENU">MENU</a>
+        </div>
+    </section>
+
+    <!-- PROMO SECTION - Single Wide Banner -->
+    <section class="bg-gray-50 py-16 px-8">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-5xl font-serif text-cafe-dark-brown text-center mb-12" data-id="Promo." data-en="Promo.">Promo.</h1>
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <video autoplay muted loop playsinline preload="auto" class="w-full h-[420px] md:h-[520px] object-cover">
+                    <source src="https://rotio.id/asset/banner/POP_MATCHA_CHOCOLATE_TV_LANDSCAPE_18k.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION - Aligned Layout -->
+    <section class="bg-white py-20 px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-serif text-cafe-dark-brown text-center mb-16" data-id="MENU" data-en="MENU">MENU</h2>
+
+            <!-- Menu Item 1: Image Left, Text Right (Aligned) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
+                <div>
+                    <img src="https://rotio.id/asset/banner/MENU_1.jpg" alt="Roti'O" class="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                </div>
+                <div>
+                    <h3 class="text-4xl font-serif text-cafe-dark-brown mb-4" data-id="Roti'O" data-en="Roti'O">Roti'O</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-id="Roti'O menyediakan Roti dengan topping cream coffee dan butter di dalamnya" data-en="Roti'O provides bread with coffee cream and butter toppings inside">Roti'O menyediakan Roti dengan topping cream coffee dan butter di dalamnya</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 2: Image Left, Text Right (Aligned) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
+                <div>
+                    <img src="https://rotio.id/asset/banner/MENU_2_compressed.jpg" alt="Pastry" class="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                </div>
+                <div>
+                    <h3 class="text-4xl font-serif text-cafe-dark-brown mb-4" data-id="Pastry" data-en="Pastry">Pastry</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-id="Nikmati varian menu Pastry-nya Roti'O yang manis dan gurih" data-en="Enjoy Roti'O's Pastry menu with sweet and savory variants">Nikmati varian menu Pastry-nya Roti'O yang manis dan gurih</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 3: Image Left, Text Right (Aligned) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://rotio.id/asset/banner/MENU_3.jpg" alt="Coffee" class="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                </div>
+                <div>
+                    <h3 class="text-4xl font-serif text-cafe-dark-brown mb-4" data-id="Coffee" data-en="Coffee">Coffee</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-id="Nikmati kelezatan Roti'O dengan kesegaran varian minuman Kopi'O Series" data-en="Enjoy Roti'O's deliciousness with the freshness of Kopi'O Series drinks">Nikmati kelezatan Roti'O dengan kesegaran varian minuman Kopi'O Series</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVITIES SECTION (Carousel) -->
+    <section id="activities" class="bg-cafe-cream py-20 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-5xl font-serif text-cafe-dark-brown" data-id="Kegiatan Kami" data-en="Our Activities">Kegiatan Kami</h2>
+                <div class="space-x-2 hidden md:flex">
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="overflow-hidden">
+                    <div id="activity-track" class="flex transition-transform duration-700 will-change-transform">
+                        <!-- Slide 1: large card with image left, content right -->
+                        <article class="flex-none w-full px-3">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="md:flex md:items-stretch">
+                                    <div class="md:w-1/2">
+                                        <img src="https://rotio.id/asset/banner/FOTO_CSR_SAID_NAUMM-07_(1)2.png" alt="Roti'O Berbagi" class="w-full h-80 md:h-full object-cover">
+                                    </div>
+                                    <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+                                        <h3 class="text-2xl md:text-3xl font-semibold text-cafe-dark-brown mb-4" data-id="Roti'O Berbagi untuk Anak Bangsa" data-en="Roti'O Share for Children">Roti'O Berbagi untuk Anak Bangsa</h3>
+                                        <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+
+													Dalam rangka merayakan Hari Anak, Roti’O menghadirkan program berbagi kebahagiaan dengan membagikan roti gratis kepada anak-anak di sekolah. Kegiatan ini menjadi wujud kepedulian Roti’O dalam mendukung tumbuh kembang anak Indonesia dengan cara yang hangat dan menyenangkan. Melalui momen kecil yang penuh senyum, Roti’O ingin menjadi bagian dari masa kecil yang manis dan berkesan.
+												.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 2: large card with image left, content right -->
+                        <article class="flex-none w-full px-3">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="md:flex md:items-stretch">
+                                    <div class="md:w-1/2">
+                                        <img src="https://rotio.id/asset/banner/RS_PMI_BOGOR__50RT__1023.JPG" alt="Roti'O Berbagi" class="w-full h-80 md:h-full object-cover">
+                                    </div>
+                                    <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+                                        <h3 class="text-2xl md:text-3xl font-semibold text-cafe-dark-brown mb-4" data-id="Roti'O Berbagi untuk Pahlawan Kesehatan" data-en="Roti'O Share for Healthcare Heroes">Roti'O Berbagi untuk Pahlawan Kesehatan</h3>
+                                        <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+
+													Sebagai bentuk apresiasi dan dukungan kepada dokter serta tenaga kesehatan yang selalu berada di garis depan dalam menjaga kesehatan masyarakat, Roti’O mengadakan program pembagian roti gratis di Hari Dokter. Melalui kegiatan ini, Roti’O percaya bahwa perhatian sederhana bisa memberikan dampak besar bagi pahlawan kesehatan kita.
+												.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 3: large card with image left, content right -->
+                        <article class="flex-none w-full px-3">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="md:flex md:items-stretch">
+                                    <div class="md:w-1/2">
+                                        <img src="https://rotio.id/asset/banner/DUDE_HARLINO_KCP-21.png" alt="Beli Roti'O Dilayani Dude Harlino" class="w-full h-80 md:h-full object-cover">
+                                    </div>
+                                    <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+                                        <h3 class="text-2xl md:text-3xl font-semibold text-cafe-dark-brown mb-4" data-id="Beli Roti'O Dilayani Dude Harlino" data-en="Buy Roti'O Served by Dude Harlino">Beli Roti'O Dilayani Dude Harlino</h3>
+                                        <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+
+													Roti'O selalu berkomitmen untuk memberikan pengalaman terbaik bagi pelanggan. Sebagai bentuk apresiasi atas kesetiaan pelanggan, Roti'O menghadirkan program eksklusif dengan menghadirkan Dude Harlino di outlet pilihan Roti’O untuk melayani pelanggan secara langsung.  Hal ini menjadi upaya untuk menghadirkan pelayanan prima serta pengalaman berbelanja yang berbeda.
+												.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Duplicate slides for smooth looping -->
+                        <article class="flex-none w-full px-3" aria-hidden="true">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                                <div class="md:flex md:items-stretch">
+                                    <div class="md:w-1/2">
+                                        <img src="https://rotio.id/asset/banner/FOTO_CSR_SAID_NAUMM-07_(1)2.png" alt="Roti'O Berbagi" class="w-full h-80 md:h-full object-cover">
+                                    </div>
+                                    <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+                                        <h3 class="text-2xl md:text-3xl font-semibold text-cafe-dark-brown mb-4">Roti'O Berbagi untuk Anak Bangsa</h3>
+                                        <p class="text-gray-700 text-base md:text-lg leading-relaxed">Dalam rangka merayakan Hari Anak, Roti'O menghadirkan program berbagi kebahagiaan dengan membagikan roti gratis kepada anak-anak di sekolah. Kegiatan ini menjadi wujud kepedulian Roti'O dalam mendukung tumbuh kembang anak Indonesia dengan cara yang hangat dan menyenangkan. Melalui momen kecil yang penuh senyum, Roti'O ingin menjadi bagian dari masa kecil yang manis dan berkesan.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="flex-none w-full px-3" aria-hidden="true">
+                            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                                <div class="md:flex md:items-stretch">
+                                    <div class="md:w-1/2">
+                                        <img src="https://rotio.id/asset/banner/RS_PMI_BOGOR__50RT__1023.JPG" alt="Roti'O Berbagi" class="w-full h-80 md:h-full object-cover">
+                                    </div>
+                                    <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+                                        <h3 class="text-2xl md:text-3xl font-semibold text-cafe-dark-brown mb-4">Roti'O Berbagi untuk Pahlawan Kesehatan</h3>
+                                        <p class="text-gray-700 text-base md:text-lg leading-relaxed">Sebagai bentuk apresiasi dan dukungan kepada dokter serta tenaga kesehatan yang selalu berada di garis depan dalam menjaga kesehatan masyarakat, Roti'O mengadakan program pembagian roti gratis di Hari Dokter. Melalui kegiatan ini, Roti'O percaya bahwa perhatian sederhana bisa memberikan dampak besar bagi pahlawan kesehatan kita.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Dots -->
+                <div id="activity-dots" class="flex justify-center gap-2 mt-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM FEED SECTION -->
+    <section class="bg-white py-20 px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-serif text-cafe-dark-brown text-center mb-4" data-id="Terhubung" data-en="Connect">Terhubung</h2>
+            <p class="text-center text-gray-600 text-lg mb-12" data-id="Dengan Kami" data-en="With Us">Dengan Kami</p>
+            
+            <div class="mb-12 text-center">
+                <h3 class="text-2xl font-semibold text-cafe-dark-brown mb-6">@rotio.indonesia</h3>
+                <div class="flex justify-center mb-8">
+                    <a href="https://www.instagram.com/rotio.indonesia" target="_blank" class="bg-cafe-brown text-white px-6 py-3 rounded-lg hover:bg-cafe-dark-brown transition-colors duration-300" data-id="Ikuti Instagram" data-en="Follow Instagram">Ikuti Instagram</a>
+                </div>
+            </div>
+
+            <!-- Instagram Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_1.jpg" alt="Instagram Post 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_2.jpg" alt="Instagram Post 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_3.jpg" alt="Instagram Post 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_4.jpg" alt="Instagram Post 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_5.jpg" alt="Instagram Post 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_6.jpg" alt="Instagram Post 6" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_7.jpg" alt="Instagram Post 7" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                    <img src="https://rotio.id/asset/instagram/IMG_8.jpg" alt="Instagram Post 8" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-gray-50 py-10 relative">
+        <div class="container mx-auto px-4">
+            <!-- Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Column 1: Logo & Copyright -->
+                <div class="flex flex-col items-center md:items-start">
+                    <img class="h-16 w-16 rounded-full mb-3" src="https://rotio.id/asset/images/rotio1.png" alt="Rotio Logo">
+                    <p class="text-xs text-gray-600 text-center md:text-left" data-id="© 2025 Roti'O. Semua hak dilindungi." data-en="© 2025 Roti'O. All rights reserved.">
+                        © 2025 Roti'O. Semua hak dilindungi.
+                    </p>
+                </div>
+                
+                <!-- Column 2: Menu Links -->
+                <div class="text-center">
+                    <h3 class="text-sm font-semibold text-cafe-dark-brown mb-4 uppercase tracking-widest" data-id="Menu" data-en="Menu">
+                        Menu
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="index.html" class="text-cafe-brown hover:text-cafe-dark-brown transition-colors" data-id="Beranda" data-en="Home">Beranda</a></li>
+                        <li><a href="about.html" class="hover:text-cafe-brown transition-colors" data-id="Tentang" data-en="About">Tentang</a></li>
+                        <li><a href="menu.html" class="hover:text-cafe-brown transition-colors" data-id="Menu" data-en="Menu">Menu</a></li>
+                        <li><a href="kontak.html" class="hover:text-cafe-brown transition-colors" data-id="Kontak" data-en="Contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Info -->
+                <div class="text-center md:text-right">
+                    <h3 class="text-sm font-semibold text-cafe-dark-brown mb-4 uppercase tracking-widest" data-id="Hubungi Kami" data-en="Contact Us">
+                        Hubungi Kami
+                    </h3>
+                    <p class="text-xs text-gray-600 mb-4" data-id="WhatsApp: 081318999227" data-en="WhatsApp: 081318999227">
+                        WhatsApp: 081318999227
+                    </p>
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-xl text-gray-600 hover:text-cafe-brown transition-colors"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Divider -->
+            <div class="border-t border-gray-200 pt-6 text-center text-xs text-gray-500" data-id="© 2025 Roti'O Indonesia" data-en="© 2025 Roti'O Indonesia">
+                © 2025 Roti'O Indonesia
+            </div>
+            <!-- Scroll to Top Button -->
+            <div class="relative">
+                <div id="scrollToTop" class="absolute -top-6 left-1/2 transform -translate-x-1/2 hidden">
+                    <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-300 cursor-pointer">
+                        <i class="fas fa-chevron-up text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll to Top Button Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===================================
+            // LOGIKA LANGUAGE SWITCHER
+            // ===================================
+            const langButtons = document.querySelectorAll('.lang-btn');
+            // Menargetkan elemen dengan data-id/data-en, termasuk link navigasi dan konten
+            const targetElements = document.querySelectorAll('[data-id][data-en]'); 
+            const langBoxButtons = document.querySelectorAll('.lang-btn-box'); 
+            
+            function updateLanguage(lang) {
+                // 1. Update teks di elemen target
+                targetElements.forEach(element => {
+                    if (lang === 'en') {
+                        element.textContent = element.getAttribute('data-en');
+                    } else {
+                        element.textContent = element.getAttribute('data-id');
+                    }
+                });
+
+                // 2. Simpan bahasa ke Local Storage
+                localStorage.setItem('currentLang', lang);
+                document.documentElement.lang = lang;
+                
+                // 3. Update style tombol kotak aktif
+                langBoxButtons.forEach(button => {
+                    // Reset style
+                    button.classList.remove('bg-cafe-brown', 'text-white', 'text-cafe-dark-brown', 'border-transparent');
+                    button.classList.add('bg-white', 'text-cafe-dark-brown', 'border-gray-300'); 
+                    
+                    // Set style untuk tombol yang aktif
+                    if (button.getAttribute('data-lang') === lang) {
+                        button.classList.add('bg-cafe-brown', 'text-white', 'border-transparent');
+                        button.classList.remove('bg-white', 'text-cafe-dark-brown', 'border-gray-300');
+                    }
+                });
+            }
+
+            // Inisialisasi: Muat bahasa dari Local Storage atau gunakan 'id'
+            const savedLang = localStorage.getItem('currentLang') || 'id';
+            updateLanguage(savedLang);
+
+            // Event Listeners untuk tombol ganti bahasa
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const lang = button.getAttribute('data-lang');
+                    updateLanguage(lang);
+                    
+                    // Tutup menu mobile setelah ganti bahasa (opsional)
+                    document.getElementById('menu-toggle').checked = false;
+                });
+            });
+
+
+            // ===================================
+            // LOGIKA PUSAT TULISAN MENU BOX & ANIMASI
+            // ===================================
+            const menuBox = document.getElementById('menuBox');
+            
+            if (menuBox) {
+                // Tambahkan kelas transisi sekali saja
+                menuBox.classList.add('transition-all', 'duration-300', 'ease-in-out');
+
+                menuBox.addEventListener('mouseenter', function() {
+                    this.classList.remove('bg-cafe-dark-brown');
+                    this.classList.add('bg-cafe-brown', 'transform', '-translate-y-1'); 
+                });
+                
+                menuBox.addEventListener('mouseleave', function() {
+                    this.classList.remove('bg-cafe-brown', 'transform', '-translate-y-1');
+                    this.classList.add('bg-cafe-dark-brown');
+                });
+            }
+
+            // ===================================
+            // ACTIVITIES CAROUSEL (minimal JS)
+            // ===================================
+            const activityTrack = document.getElementById('activity-track');
+            if (activityTrack) {
+                const slides = Array.from(activityTrack.children);
+                const prevBtn = document.getElementById('act-prev');
+                const nextBtn = document.getElementById('act-next');
+                const dotsContainer = document.getElementById('activity-dots');
+                const originalSlideCount = 3; // first 3 are original content
+
+                function getVisibleCount() {
+                    // Always show one slide per view (desktop & mobile)
+                    return 1;
+                }
+
+                let visible = getVisibleCount();
+                let index = 0; // current left-most slide index
+
+                function updateTrack() {
+                    const shiftPercent = (index * 100) / visible;
+                    activityTrack.style.transition = '';
+                    activityTrack.style.transform = `translateX(-${shiftPercent}%)`;
+                    renderDots();
+                }
+
+                function renderDots() {
+                    if (!dotsContainer) return;
+                    dotsContainer.innerHTML = '';
+                    const pages = Math.ceil(originalSlideCount / visible);
+                    const activePage = Math.floor(index / visible) % pages;
+                    for (let i = 0; i < pages; i++) {
+                        const btn = document.createElement('button');
+                        btn.className = 'w-3 h-3 rounded-full transition-colors';
+                        btn.classList.add(i === activePage ? 'bg-cafe-brown' : 'bg-gray-300');
+                        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                        btn.addEventListener('click', () => {
+                            index = i * visible;
+                            updateTrack();
+                            resetAutoPlay();
+                        });
+                        dotsContainer.appendChild(btn);
+                    }
+                }
+
+                function next() {
+                    index += visible;
+                    const maxIndex = slides.length - visible;
+                    if (index > maxIndex) index = 0;
+                    updateTrack();
+                }
+
+                function prev() {
+                    index -= visible;
+                    const maxIndex = slides.length - visible;
+                    if (index < 0) index = maxIndex;
+                    updateTrack();
+                }
+
+                nextBtn && nextBtn.addEventListener('click', () => { next(); resetAutoPlay(); });
+                prevBtn && prevBtn.addEventListener('click', () => { prev(); resetAutoPlay(); });
+
+                // Autoplay
+                let autoplay = setInterval(next, 4000);
+                function resetAutoPlay() { clearInterval(autoplay); autoplay = setInterval(next, 4000); }
+
+                // Pause on hover
+                const parent = activityTrack.parentElement;
+                parent && parent.addEventListener('mouseenter', () => clearInterval(autoplay));
+                parent && parent.addEventListener('mouseleave', () => resetAutoPlay());
+
+                // Drag / swipe support (pointer events)
+                let isDragging = false;
+                let startX = 0;
+                let currentDelta = 0;
+                const thresholdPx = 60;
+
+                function onPointerDown(e) {
+                    isDragging = true;
+                    startX = e.clientX;
+                    currentDelta = 0;
+                    activityTrack.style.transition = 'none';
+                    parent.setPointerCapture && parent.setPointerCapture(e.pointerId);
+                }
+
+                function onPointerMove(e) {
+                    if (!isDragging) return;
+                    currentDelta = e.clientX - startX;
+                    const deltaPercent = (currentDelta / parent.clientWidth) * 100;
+                    const base = (index * 100) / visible;
+                    activityTrack.style.transform = `translateX(-${base - deltaPercent}%)`;
+                }
+
+                function onPointerUp(e) {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    activityTrack.style.transition = '';
+                    // decide
+                    if (Math.abs(currentDelta) > thresholdPx) {
+                        if (currentDelta < 0) next(); else prev();
+                    } else {
+                        updateTrack();
+                    }
+                    parent.releasePointerCapture && parent.releasePointerCapture(e.pointerId);
+                    currentDelta = 0;
+                }
+
+                parent && parent.addEventListener('pointerdown', onPointerDown);
+                parent && parent.addEventListener('pointermove', onPointerMove);
+                parent && parent.addEventListener('pointerup', onPointerUp);
+                parent && parent.addEventListener('pointercancel', onPointerUp);
+
+                // Recalculate on resize
+                window.addEventListener('resize', () => {
+                    const newVisible = getVisibleCount();
+                    if (newVisible !== visible) {
+                        visible = newVisible;
+                        index = 0;
+                        updateTrack();
+                    }
+                });
+
+                // Init
+                updateTrack();
+            }
+        });
+    </script>
+</body>
+</html>

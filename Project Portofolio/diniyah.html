@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Proyek Diniyah & Studi Agama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Gaya untuk kartu proyek agar gambar mengisi penuh */
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px; 
+            transition: transform 0.3s ease;
+        }
+        .project-item:hover {
+            transform: scale(1.03);
+        }
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+         /* Gaya untuk Overlay Link Video */
+        .project-item .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-item:hover .play-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <header class="bg-gray-900 shadow-lg border-b border-gray-700">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-yellow-500">
+                <a href="index.html#proyek">← Kembali ke Kategori</a>
+            </h1>
+            <span class="text-gray-400">Diniyah & Studi Agama</span>
+        </nav>
+    </header>
+
+    <section class="py-16 px-4 md:px-8">
+        <h2 class="text-4xl font-extrabold text-center mb-4">OUR WORK: DINIYAH PROJECTS</h2>
+        <p class="text-center text-gray-400 mb-12">Koleksi Proyek Hafalan, Poster, dan Studi Bahasa</p>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+            
+            <a href="https://www.youtube.com/watch?v=AkNWs-Q5mkg" target="_blank" class="project-item aspect-square">
+                <img src="images/The Great Question.jpg" alt="Tasmi' Juz 30" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
+                <div class="play-overlay">
+                     <div class="text-center">
+                         <i class="fas fa-play text-4xl text-yellow-500 mb-2"></i>
+                         <p class="text-white font-semibold">Vidio Tasmi</p>
+                     </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1BDBFuyAcfMUzX7PMsNZ_-FO1GLaukoZn" target="_blank" class="project-item aspect-square">
+                <img src="images/foto buat poster.jpg" alt="Poster Kaidah Samiriyyah" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
+                <div class="play-overlay">
+                     <p class="text-white font-semibold">Project Poster</p>
+                </div>
+            </a>
+
+            <a href="https://docs.google.com/spreadsheets/d/1u-VRu2ZXIVgUJz6RfHaVTjW-2t03eeCVcUjnLInOll4/edit?gid=0#gid=0" class="project-item md:col-span-2 aspect-video">
+                <img src="images/foto buat bahasa arab.jpg" alt="Kategori Bahasa Arab" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-300">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-6">
+                    <div class="text-center">
+                        <h4 class="text-3xl font-bold mb-2 text-yellow-500">Kategori Khusus: Bahasa Arab</h4>
+                        <p class="text-md text-gray-300">Vlog & Kitabah.</p>
+                        <span class="mt-4 inline-block text-sm font-semibold border border-yellow-500 py-2 px-4 rounded-full">Lihat Detail →</span>
+                    </div>
+                </div>
+            </a>
+            
+            <div class="hidden lg:block"></div> 
+            <div class="hidden lg:block"></div>
+            
+        </div>
+    </section>
+
+    <footer class="p-6 bg-gray-900 border-t border-gray-700 text-center text-sm text-gray-500">
+        <p>&copy; 2025 Portofolio Saya. Proyek Diniyah & Studi Agama.</p>
+    </footer>
+
+</body>
+</html>
