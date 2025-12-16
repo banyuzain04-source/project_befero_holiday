@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Hubungi Saya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <header class="bg-gray-900 shadow-lg border-b border-gray-700">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-yellow-500">
+                <a href="index.html">← Kembali ke Beranda</a>
+            </h1>
+            <span class="text-gray-400">Hubungi Saya</span>
+        </nav>
+    </header>
+
+    <section class="py-20 px-6 md:px-20 bg-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-4">Hubungi Saya</h2>
+            <p class="text-gray-400 mb-12">Kirim pesan untuk kolaborasi atau pertanyaan</p>
+            
+            <form id="contactForm" class="bg-gray-900 p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Nama</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subjek</label>
+                    <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Pesan</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition duration-300">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="p-6 bg-gray-900 border-t border-gray-700 text-center text-sm text-gray-500">
+        <p>&copy; 2025 Portofolio Saya. Hubungi Saya.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simpan data ke localStorage
+            localStorage.setItem('contactName', name);
+            localStorage.setItem('contactEmail', email);
+            localStorage.setItem('contactSubject', subject);
+            localStorage.setItem('contactMessage', message);
+            
+            // Redirect ke halaman terima kasih
+            window.location.href = 'thank-you.html';
+        });
+    </script>
+
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\User\OneDrive\Desktop\Project before Holiday\Project Portofolio\thank-you.html

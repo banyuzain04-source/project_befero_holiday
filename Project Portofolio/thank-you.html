@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih | Portofolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <header class="bg-gray-900 shadow-lg border-b border-gray-700">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-yellow-500">
+                <a href="index.html">← Kembali ke Beranda</a>
+            </h1>
+            <span class="text-gray-400">Terima Kasih</span>
+        </nav>
+    </header>
+
+    <section class="py-20 px-6 md:px-20 bg-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
+                <h2 class="text-4xl font-extrabold mb-4">Terima Kasih!</h2>
+                <p class="text-gray-400 mb-8">Formulir Anda telah diisi. Klik tombol di bawah untuk mengirim pesan ke email saya.</p>
+            </div>
+            <button id="sendEmailBtn" class="bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition duration-300 mr-4">Kirim Email Sekarang</button>
+            <a href="index.html" class="bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition duration-300">Kembali ke Beranda</a>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-4">Kritik dan Saran</h2>
+            <p class="text-gray-400 mb-12">Berikan masukan Anda untuk meningkatkan portofolio ini</p>
+            
+            <form action="mailto:banyuzain04@gmail.com" method="post" enctype="text/plain" class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="feedbackName" class="block text-sm font-medium text-gray-300 mb-2">Nama</label>
+                        <input type="text" id="feedbackName" name="name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white">
+                    </div>
+                    <div>
+                        <label for="feedbackEmail" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="feedbackEmail" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="feedbackMessage" class="block text-sm font-medium text-gray-300 mb-2">Kritik dan Saran</label>
+                    <textarea id="feedbackMessage" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition duration-300">Kirim Kritik & Saran</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="p-6 bg-gray-900 border-t border-gray-700 text-center text-sm text-gray-500">
+        <p>&copy; 2025 Portofolio Azka Zain. Terima Kasih.</p>
+    </footer>
+
+    <script>
+        document.getElementById('sendEmailBtn').addEventListener('click', function() {
+            const name = localStorage.getItem('contactName');
+            const email = localStorage.getItem('contactEmail');
+            const subject = localStorage.getItem('contactSubject');
+            const message = localStorage.getItem('contactMessage');
+            
+            if (name && email && subject && message) {
+                const mailtoLink = `mailto:banyuzain04@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
+                window.location.href = mailtoLink;
+            } else {
+                alert('Data formulir tidak ditemukan. Silakan isi formulir lagi.');
+            }
+        });
+    </script>
+
+</body>
+</html>

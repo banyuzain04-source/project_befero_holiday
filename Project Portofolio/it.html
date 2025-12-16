@@ -11,7 +11,7 @@
         .project-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px; /* rounded-xl */
+            border-radius: 8px; 
             transition: transform 0.3s ease;
         }
         .project-item:hover {
@@ -22,18 +22,25 @@
             height: 100%;
             object-fit: cover;
         }
-        /* Style untuk Overlay Teks/Link (Opsional: jika ingin menampilkan nama proyek saat hover) */
+         /* Style untuk Overlay Teks/Link */
         .project-item .overlay-info {
             position: absolute;
-            bottom: 0;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 10px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(20px);
         }
-        .project-item:hover .overlay-info {
+        .project-item:hover .overlay-info,
+        .project-item:active .overlay-info {
             opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -42,7 +49,7 @@
     <header class="bg-gray-900 shadow-lg border-b border-gray-700">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold text-yellow-500">
-                <a href="index.html#proyek">← Kembali ke Beranda</a>
+                <a href="index.html#proyek">← Kembali ke Kategori</a>
             </h1>
             <span class="text-gray-400">IT & Web Development</span>
         </nav>
@@ -50,79 +57,37 @@
 
     <section class="py-16 px-4 md:px-8">
         <h2 class="text-4xl font-extrabold text-center mb-4">OUR WORK: IT PROJECTS</h2>
-        <p class="text-center text-gray-400 mb-12">Koleksi Proyek Python, HTML, CSS, dan Tailwind (Arahkan ke Repositori/Live Project)</p>
+        <p class="text-center text-gray-400 mb-12">Koleksi Proyek Utama: Python dan Slicing Web</p>
 
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+        <div class="max-w-7xl mx-auto flex gap-1 overflow-x-auto pb-4">
             
-            <a href="LINK_LIVE_PROJECT_1" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=Tailwind+Landing+Page" alt="Landing Page Tailwind" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                <div class="overlay-info">
-                    <p class="text-sm font-semibold">Landing Page</p>
-                    <p class="text-xs text-yellow-400">Tailwind CSS</p>
-                </div>
+            <a href="https://github.com/banyuzain04-source/project_befero_holiday/tree/main/Project%20Python" target="_blank" class="project-item flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <img src="images/Learn Python in a week and Master it - Coding Guide to Better Coding.jpg" alt="Python Script" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
+                 <div class="overlay-info">
+                     <div class="text-center">
+                         <p class="text-white font-semibold mb-4">Data API</p>
+                         <p class="text-yellow-400 text-sm mb-4">Python</p>
+                         <button class="bg-yellow-500 text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-600 transition duration-300">Pelajari</button>
+                     </div>
+                 </div>
             </a>
 
-            <a href="LINK_REPOSITORY_2" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=Python+Automation+Script" alt="Python Script" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
+            <a href="https://project-befero-holiday.vercel.app/" target="_blank" class="project-item flex-shrink-0 w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
+                <img src="images/Official Tailwind UI Components & Templates - Tailwind Plus.jpg" alt="Web Slicing" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
                  <div class="overlay-info">
-                    <p class="text-sm font-semibold">Script Otomatisasi</p>
-                    <p class="text-xs text-yellow-400">Python</p>
-                </div>
-            </a>
-
-            <a href="LINK_LIVE_PROJECT_3" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=CSS+Animations" alt="CSS Animation" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                 <div class="overlay-info">
-                    <p class="text-sm font-semibold">Animasi Web</p>
-                    <p class="text-xs text-yellow-400">HTML & CSS</p>
-                </div>
+                     <div class="text-center">
+                         <p class="text-white font-semibold mb-4">Slicing Web</p>
+                         <p class="text-yellow-400 text-sm mb-4">HTML & Tailwind CSS</p>
+                         <button class="bg-yellow-500 text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-600 transition duration-300">Pelajari</button>
+                     </div>
+                 </div>
             </a>
             
-            <a href="LINK_REPOSITORY_4" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=HTML+Static+Website" alt="Web Statis" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                 <div class="overlay-info">
-                    <p class="text-sm font-semibold">Website Statis</p>
-                    <p class="text-xs text-yellow-400">HTML</p>
-                </div>
-            </a>
-            
-            <a href="LINK_REPOSITORY_5" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=Python+Data+Analysis" alt="Data Analysis" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                 <div class="overlay-info">
-                    <p class="text-sm font-semibold">Analisis Data Sederhana</p>
-                    <p class="text-xs text-yellow-400">Python</p>
-                </div>
-            </a>
-
-            <a href="LINK_LIVE_PROJECT_6" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=Tailwind+Component" alt="Tailwind Component" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                 <div class="overlay-info">
-                    <p class="text-sm font-semibold">Komponen UI</p>
-                    <p class="text-xs text-yellow-400">Tailwind CSS</p>
-                </div>
-            </a>
-
-             <a href="LINK_REPOSITORY_7" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=CSS+Grid+Blog+Layout" alt="CSS Grid" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                 <div class="overlay-info">
-                    <p class="text-sm font-semibold">Layout Blog</p>
-                    <p class="text-xs text-yellow-400">CSS Grid</p>
-                </div>
-            </a>
-
-            <a href="LINK_REPOSITORY_8" target="_blank" class="project-item aspect-square">
-                <img src="https://via.placeholder.com/400x400?text=Simple+Python+Game" alt="Python Game" class="object-cover opacity-80 hover:opacity-100 transition duration-300">
-                 <div class="overlay-info">
-                    <p class="text-sm font-semibold">Game Sederhana</p>
-                    <p class="text-xs text-yellow-400">Python</p>
-                </div>
-            </a>
-
         </div>
     </section>
 
     <footer class="p-6 bg-gray-900 border-t border-gray-700 text-center text-sm text-gray-500">
-        <p>&copy; 2025 Portofolio Saya. Proyek IT & Web Development.</p>
+        <p>&copy; 2025 Portofolio Azka Zain. Proyek IT & Web Development.</p>
     </footer>
 
 </body>
