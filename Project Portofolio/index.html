@@ -13,7 +13,7 @@
             width: 96px; /* w-24 */
             height: 96px; /* h-24 */
             border-radius: 9999px; /* rounded-full */
-            background-color: #4b5563; /* bg-gray-700 */
+            background-color: #f5efeb; /* beige */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -37,13 +37,13 @@
             /* Menghilangkan border 2px dan menggantinya dengan shadow untuk efek hover */
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            background: linear-gradient(135deg, #f5efeb 0%, #c8d9e6 100%);
             /* Perhatikan: class border-2 di HTML akan dihapus */
         }
         .category-card:hover {
             transform: translateY(-5px); 
-            /* Mengganti hover border dengan shadow kuning */
-            box-shadow: 0 20px 25px -5px rgba(252, 211, 77, 0.3), 0 10px 10px -5px rgba(252, 211, 77, 0.1);
+            /* Mengganti hover border dengan shadow teal */
+            box-shadow: 0 20px 25px -5px rgba(86, 124, 141, 0.3), 0 10px 10px -5px rgba(86, 124, 141, 0.1);
         }
 
         /* --- Custom Ratio Hack untuk Gambar Utama --- */
@@ -79,12 +79,15 @@
         </nav>
     </header>
 
-    <section id="welcome" class="py-20 px-6 md:px-20 bg-gray-800">
+    <section id="welcome" class="py-20 px-6 md:px-20 bg-gray-800 relative">
+        <div class="absolute top-4 left-4 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full md:hidden z-10">
+            WELCOME
+        </div>
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
             
-            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-16">
-                <div class="ratio-16x9 bg-gray-600 rounded-lg border-4 border-yellow-500">
-                    <img src="images/foto.jpg" alt="Portofolio Visual" />
+            <div class="w-full md:w-1/2 mb-8 md:mb-0 md:pr-16">
+                <div class="aspect-square md:aspect-video bg-gray-600 rounded-2xl border-4 border-yellow-400 shadow-2xl shadow-yellow-500/30 overflow-hidden transform hover:scale-105 transition-all duration-300">
+                    <img src="images/Gambar WhatsApp 2025-12-13 pukul 23.21.24_7bed5051.jpg" alt="Portofolio Visual" class="w-full h-full object-cover object-top" />
                 </div>
             </div>
             
@@ -109,7 +112,10 @@
         </div>
     </section>
     
-    <section id="teknologi" class="py-20 px-6 md:px-20">
+    <section id="teknologi" class="py-20 px-6 md:px-20 relative">
+        <div class="absolute top-4 left-4 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full md:hidden z-10">
+            TEKNOLOGI
+        </div>
         <h3 class="text-center text-3xl font-bold mb-4">Teknologi yang Saya Kuasai</h3>
         <p class="text-center text-gray-400 mb-12">Fokus pembelajaran saya saat ini meliputi:</p>
         <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 items-start">
@@ -141,7 +147,10 @@
         </div>
     </section>
 
-    <section id="proyek" class="py-20 px-6 md:px-20 bg-gray-800">
+    <section id="proyek" class="py-20 px-6 md:px-20 bg-gray-800 relative">
+        <div class="absolute top-4 left-4 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full md:hidden z-10">
+            PROYEK
+        </div>
         <h3 class="text-center text-3xl font-bold mb-4">Sorotan Proyek</h3>
         <p class="text-center text-gray-400 mb-12">Jelajahi karya saya yang terbagi menjadi dua fokus utama:</p>
         
